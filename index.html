@@ -4,20 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <h1>Quem está assistindo?</h1>
-        <div class="profiles">
-            <div class="profile">
-                <img src="/assets/perfil-1.jpg" alt="Perfil 1">
-                <p>Perfil 1 </p>
-            </div>
-            <div class="profile">
-                <img src="/assets/perfil-2.jpg" alt="Perfil 2">
-                <p>Perfil 2</p>
-            </div>
-        </div>
+        <section aria-label="Perfis disponíveis">
+            <nav aria-label="Selecionar perfil">
+                <ul class="profiles-wrapper">
+                    <li>
+                        <ol class="profiles">
+                            <li class="profile-item">
+                                <a href="#" class="profile">
+                                    <figure>
+                                        <img src="/assets/perfil-1.jpg" alt="Imagem de um personagem de cabelo roxo e monóculo em cenário sombrio com miniaturas e velas">
+                                        <figcaption>Gustavo</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile-item">
+                                <a href="#" class="profile">
+                                    <figure>
+                                        <img src="/assets/perfil-3.jpg" alt="Imagem de um grupo feminino estilizado em pose dinâmica">
+                                        <figcaption>Sophia</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile-item">
+                                <a href="#" class="profile">
+                                    <figure>
+                                        <img src="/assets/perfil-2.jpg" alt="Imagem de boné azul em destaque">
+                                        <figcaption>Paulo</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile-item">
+                                <a href="#" class="profile">
+                                    <figure>
+                                        <img src="/assets/perfil-4.jpg" alt="Imagem inspirada em animação de fantasia">
+                                        <figcaption>Marina</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </nav>
+        </section>
     </main>
 </body>
 </html>
