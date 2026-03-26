@@ -1,0 +1,133 @@
+body{
+    background: #141414;
+    color: #fff;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+section[aria-label="Perfis disponíveis"]{
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.profiles-wrapper,
+.profiles{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profiles-wrapper{
+    width: 100%;
+}
+
+.profiles-wrapper > li{
+    display: flex;
+    justify-content: center;
+}
+
+.profiles{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.profile-item{
+    display: flex;
+    justify-content: center;
+}
+
+.profile{
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+figure{
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    width: clamp(90px, 22vw, 140px);
+    height: clamp(90px, 22vw, 140px);
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    background: #222;
+}
+
+img:hover{
+    transform: scale(1.08);
+    border: 1px solid #fff;
+}
+
+figcaption{
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px){
+    main{
+        padding: 1.5rem 0.75rem;
+    }
+
+    .profiles{
+        gap: 1rem;
+    }
+
+    .profile{
+        width: calc(50% - 0.5rem);
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 900px){
+    .profiles{
+        max-width: 700px;
+        gap: 1.5rem 2rem;
+    }
+
+    .profile{
+        width: calc(25% - 1.5rem);
+        min-width: 120px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Desktop */
+@media (min-width: 901px){
+    .profiles{
+        flex-wrap: nowrap;
+    }
+}
