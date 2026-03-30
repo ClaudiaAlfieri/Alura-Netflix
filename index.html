@@ -1,62 +1,103 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Netflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
+
 <body>
-    <header class="top-nav" aria-label="Barra superior">
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Ativar modo claro" aria-pressed="false">
-            <span class="theme-toggle-thumb" aria-hidden="true"></span>
-        </button>
-    </header>
-    <main>
-        <h1>Quem está assistindo?</h1>
-        <section aria-label="Perfis disponíveis">
-            <nav aria-label="Selecionar perfil">
-                <ul class="profiles-wrapper">
-                    <li>
-                        <ol class="profiles">
-                            <li class="profile-item">
-                                <a href="#" class="profile">
-                                    <figure>
-                                        <img src="/assets/perfil-1.jpg" alt="Imagem de um personagem de cabelo roxo e monóculo em cenário sombrio com miniaturas e velas">
-                                        <figcaption>Gustavo</figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <li class="profile-item">
-                                <a href="#" class="profile">
-                                    <figure>
-                                        <img src="/assets/perfil-3.jpg" alt="Imagem de um grupo feminino estilizado em pose dinâmica">
-                                        <figcaption>Sophia</figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <li class="profile-item">
-                                <a href="#" class="profile">
-                                    <figure>
-                                        <img src="/assets/perfil-2.jpg" alt="Imagem de boné azul em destaque">
-                                        <figcaption>Paulo</figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                            <li class="profile-item">
-                                <a href="#" class="profile">
-                                    <figure>
-                                        <img src="/assets/perfil-4.jpg" alt="Imagem inspirada em animação de fantasia">
-                                        <figcaption>Marina</figcaption>
-                                    </figure>
-                                </a>
-                            </li>
-                        </ol>
-                    </li>
-                </ul>
-            </nav>
+
+    <!-- Tela de Carregamento Fullscreen -->
+    <div id="loading-screen" class="loading-screen">
+        <video id="loading-video" autoplay playsinline class="loading-video">
+            <source data-src="./assets/Netflix-Logo-Animation.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+    </div>
+
+    <main class="conteudo-principal hidden">
+
+        <nav class="navbar">
+            <div class="logo">NETFLIX</div>
+            <button id="theme-toggle" data-theme-toggle aria-label="Alternar tema">&#x1F319;</button>
+        </nav>
+        <header>
+            <h1>Quem está assistindo?</h1>
+        </header>
+      
+        <ul class="lista-perfis">
+           <!-- perfil 1 -->
+            <li class="item-perfil">
+                <a href="catalogo/catalogo.html" class="perfil"
+                onclick="selecionarPerfil('João', 'assets/perfil-1.webp')">
+                    <figure class="avatar-container">
+                        <span class="imagem-perfil tema-cris" aria-hidden="true">
+                            <span class="icone-avatar">
+                                <img src="assets/perfil-1.webp" alt="Perfil do João" width="128" height="128">
+                            </span>
+                        </span>
+                        <figcaption class="nome-perfil">João</figcaption>
+                    </figure>
+                </a>
+            </li>
+
+            <!-- perfil 2 -->
+            <li class="item-perfil">
+                <a href="catalogo/catalogo.html" class="perfil"
+                onclick="selecionarPerfil('Inês', 'assets/perfil-4.jpg')">
+                    <figure class="avatar-container">
+                        <span class="imagem-perfil tema-cris" aria-hidden="true">
+                            <span class="icone-avatar">
+                                <img src="assets/perfil-4.jpg" alt="Perfil da Inês" width="128" height="128">
+                            </span>
+                        </span>
+                        <figcaption class="nome-perfil">Inês</figcaption>
+                    </figure>
+                </a>
+            </li>
+
+            <!-- perfil 3 -->
+            <li class="item-perfil">
+                <a href="catalogo/catalogo.html" class="perfil"
+                onclick="selecionarPerfil('Maria', 'assets/perfil-3.jpg')">
+                    <figure class="avatar-container">
+                        <span class="imagem-perfil tema-cris" aria-hidden="true">
+                            <span class="icone-avatar">
+                                <img src="assets/perfil-3.jpg" alt="Perfil da Maria" width="128" height="128">
+                            </span>
+                        </span>
+                        <figcaption class="nome-perfil">Maria</figcaption>
+                    </figure>
+                </a>
+            </li>
+
+            <!-- perfil 4 -->
+            <li class="item-perfil">
+                <a href="catalogo/catalogo.html" class="perfil"
+                onclick="selecionarPerfil('Convidado', 'assets/perfil-2.jpg')">
+                    <figure class="avatar-container">
+                        <span class="imagem-perfil tema-cris" aria-hidden="true">
+                            <span class="icone-avatar">
+                                <img src="assets/perfil-2.jpg" alt="Perfil de Convidado" width="128" height="128">
+                            </span>
+                        </span>
+                        <figcaption class="nome-perfil">Convidado</figcaption>
+                    </figure>
+                </a>
+            </li>
+        </ul>
+
+        <section class="gerenciar">
+            <button type="button" class="botao-gerenciar">Gerenciar perfis</button>
         </section>
+
     </main>
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>
