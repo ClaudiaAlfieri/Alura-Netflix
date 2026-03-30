@@ -1,190 +1,196 @@
-:root{
+:root {
     --bg-color: #141414;
-    --text-color: #ffffff;
-    --surface-color: #222222;
-    --border-color: #ffffff;
-    --button-track: #2b2b2b;
-    --button-thumb: #ffffff;
+    --text-color: #fff;
+    --subtle-text-color: #808080;
 }
 
-body[data-theme="light"]{
-    --bg-color: #f3f4f6;
-    --text-color: #1a1a1a;
-    --surface-color: #d6d9df;
-    --border-color: #1a1a1a;
-    --button-track: #ced2d9;
-    --button-thumb: #ffffff;
-}
-
-body{
-    background: var(--bg-color);
+body {
+    background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     margin: 0;
-    min-height: 100vh;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.top-nav{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
-    box-sizing: border-box;
-    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Geist', sans-serif;
+    overflow: hidden;
 }
 
-main{
+body[data-theme='light'] {
+    --bg-color: #f5f5f5;
+    --text-color: #1f1f1f;
+    --subtle-text-color: #5d5d5d;
+}
+
+.conteudo-principal.hidden {
+    display: none !important;
+}
+
+.conteudo-principal {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 4rem 1rem 2rem;
-    box-sizing: border-box;
 }
 
-.theme-toggle{
-    width: 54px;
-    height: 30px;
-    border: 1px solid var(--border-color);
-    background: var(--button-track);
-    border-radius: 999px;
-    padding: 3px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    transition: background-color 0.25s ease;
-}
-
-.theme-toggle-thumb{
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--button-thumb);
-    transform: translateX(0);
-    transition: transform 0.25s ease;
-}
-
-body[data-theme="light"] .theme-toggle-thumb{
-    transform: translateX(24px);
-}
-
-h1{
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-    font-weight: bold;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-section[aria-label="Perfis disponíveis"]{
+.navbar {
     width: 100%;
-    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.logo {
+    color: #e50914;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 3rem;
+}
+
+#theme-toggle {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+body[data-theme='light'] #theme-toggle {
+    border-color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+    font-size: 3.5vw;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.lista-perfis {
     display: flex;
     justify-content: center;
-}
-
-.profiles-wrapper,
-.profiles{
+    flex-wrap: wrap;
+    gap: 0.2vw;
+    margin-bottom: 50px;
     list-style: none;
-    margin: 0;
     padding: 0;
 }
 
-.profiles-wrapper{
-    width: 100%;
+.item-perfil {
+    width: 10vw;
+    min-width: 120px;
+    max-width: 200px;
 }
 
-.profiles-wrapper > li{
+.perfil {
     display: flex;
-    justify-content: center;
-}
-
-.profiles{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.profile-item{
-    display: flex;
-    justify-content: center;
-}
-
-.profile{
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    color: var(--text-color);
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: inherit;
 }
 
-figure{
-    margin:0;
-    display:flex;
+/* ---------- AVATAR ---------- */
+
+.avatar-container {
+    margin: 0;
+    width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-img{
-    width: clamp(90px, 22vw, 140px);
-    height: clamp(90px, 22vw, 140px);
-    border-radius: 8px;
+.icone-avatar {
+    width: 100%;
+    height: 100%;
+}
+
+.icone-avatar img {
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    margin-bottom: 0.5rem;
-    background: var(--surface-color);
+    border-radius: 8px;
+    outline: 3px solid transparent;
+    /* reserva espaço */
+    transition: outline-color 0.3s;
 }
 
-img:hover{
-    transform: scale(1.08);
-    border: 1px solid var(--border-color);
+/* ---------- NOME ---------- */
+
+.nome-perfil {
+    font-size: 1.2vw;
+    margin-top: 8px;
+    color: var(--subtle-text-color);
+    font-weight: 400;
+    transition: color 0.3s;
 }
 
-figcaption{
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    font-weight: 500;
-    margin-top: 0.5rem;
-    letter-spacing: 0.5px;
+/* ---------- HOVER UNIFICADO ---------- */
+
+.perfil:hover img {
+    outline-color: #fff;
 }
 
-/* Celulares pequenos */
-@media (max-width: 480px){
-    main{
-        padding: 4rem 0.75rem 1.5rem;
-    }
-
-    .profiles{
-        gap: 1rem;
-    }
-
-    .profile{
-        width: calc(50% - 0.5rem);
-        display: flex;
-        justify-content: center;
-    }
+.perfil:hover .nome-perfil {
+    color: #fff;
 }
 
-/* Tablets */
-@media (min-width: 481px) and (max-width: 900px){
-    .profiles{
-        max-width: 700px;
-        gap: 1.5rem 2rem;
-    }
+/* ---------- GERENCIAR ---------- */
 
-    .profile{
-        width: calc(25% - 1.5rem);
-        min-width: 120px;
-        display: flex;
-        justify-content: center;
-    }
+.gerenciar {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
-/* Desktop */
-@media (min-width: 901px){
-    .profiles{
-        flex-wrap: nowrap;
-    }
+.botao-gerenciar {
+    background: transparent;
+    border: 1px solid grey;
+    border-radius: 8px;
+    color: grey;
+    padding: 10px 30px;
+    font-size: 1vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-weight: 200;
+    transition: all 0.3s;
+}
+
+.botao-gerenciar:hover {
+    border-color: #e5e5e5;
+    color: #e5e5e5;
+}
+
+/* ---------- LOADING SCREEN ---------- */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loading-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
