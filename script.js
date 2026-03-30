@@ -1,3 +1,55 @@
+// Controle da tela de carregamento
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingVideo = document.getElementById('loading-video');
+    const loadingScreen = document.getElementById('loading-screen');
+    const mainContent = document.querySelector('main');
+    const body = document.body;
+    let menuMostrado = false;
+
+    function mostrarMenu() {
+        if (menuMostrado) return;
+        menuMostrado = true;
+        
+        console.log('Mostrando menu...');
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.pointerEvents = 'none';
+        
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            mainContent.classList.remove('hidden');
+            body.style.overflow = 'auto';
+            console.log('Menu exibido');
+        }, 500);
+    }
+
+    if (loadingVideo) {
+        console.log('Vídeo encontrado, aguardando...');
+        
+        // Mostrar menu quando vídeo terminar
+        loadingVideo.addEventListener('ended', () => {
+            console.log('Vídeo terminou');
+            mostrarMenu();
+        });
+
+        // Fallback: se vídeo der erro, mostrar após 2s
+        loadingVideo.addEventListener('error', () => {
+            console.log('Erro no vídeo');
+            setTimeout(mostrarMenu, 2000);
+        });
+
+        // Fallback: se vídeo não terminar em 15s, mostrar menu mesmo assim
+        setTimeout(() => {
+            console.log('Timeout - mostrando menu');
+            mostrarMenu();
+        }, 15000);
+    } else {
+        console.log('Vídeo não encontrado');
+        // Se vídeo não existe, mostrar menu imediatamente
+        mostrarMenu();
+    }
+});
+
+
 const STORAGE_KEY = "theme-preference";
 
 function getSystemTheme() {
